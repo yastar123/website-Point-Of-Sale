@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Subtle dark theme - professional and clean */
+    --background: 220 16% 8%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 16% 11%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 16% 11%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 215 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 15%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 12% 18%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 200 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 210 20% 98%;
+
+    --success: 145 55% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 80% 50%;
+    --warning-foreground: 220 16% 8%;
+
+    --border: 220 12% 18%;
+    --input: 220 14% 14%;
+    --ring: 215 70% 55%;
+
+    --radius: 0.625rem;
+
+    /* Subtle gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 70% 55%) 0%, hsl(225 65% 50%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(200 60% 45%) 0%, hsl(215 60% 50%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 16% 12%) 0%, hsl(220 16% 9%) 100%);
+
+    /* Subtle glass effect */
+    --glass-bg: hsl(220 16% 11% / 0.85);
+    --glass-border: hsl(220 12% 22% / 0.5);
+
+    /* Shadows - more subtle */
+    --shadow-sm: 0 2px 4px hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.25);
+    --shadow-lg: 0 8px 24px hsl(0 0% 0% / 0.3);
+
+    --sidebar-background: 220 16% 9%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 215 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 15%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 12% 16%;
+    --sidebar-ring: 215 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-card {
+    background: linear-gradient(145deg, hsl(220 16% 12% / 0.9) 0%, hsl(220 16% 9% / 0.9) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(220 12% 20% / 0.5);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .status-pending {
+    @apply bg-warning/15 text-warning border-warning/25;
+  }
+
+  .status-paid {
+    @apply bg-success/15 text-success border-success/25;
+  }
+
+  .status-printing {
+    @apply bg-accent/15 text-accent border-accent/25;
+  }
+
+  .status-finishing {
+    @apply bg-primary/15 text-primary border-primary/25;
+  }
+
+  .status-done {
+    @apply bg-success/15 text-success border-success/25;
+  }
+}
